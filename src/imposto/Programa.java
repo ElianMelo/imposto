@@ -8,7 +8,7 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		double sal, serv, cap, med, edu, impSal, impServ, impCap, totImp, gastDedu, maxDedu;
+		double sal, serv, cap, med, edu, impSal, impServ, impCap, totImp, restImp, abat,  gastDedu, maxDedu;
 		impSal = impServ = impCap = 0.0;
 		
 		System.out.print("Renda anual com salário: ");
@@ -55,6 +55,20 @@ public class Programa {
 		System.out.printf("Máximo dedutível: %.2f%n", maxDedu);
 		System.out.printf("Gastos dedutíveis: %.2f%n", gastDedu);
 		
+		if(gastDedu >= maxDedu) {
+			restImp = totImp - maxDedu;
+			abat = maxDedu;
+		} else {
+			restImp = totImp - gastDedu;
+			abat = gastDedu;
+		}
+		
+		System.out.println("");
+		System.out.println("RESUMO:");
+		System.out.printf("Imposto bruto total: %.2f%n", totImp);
+		System.out.printf("Abatimento: %.2f%n", abat);
+		System.out.printf("Imposto devido: %.2f%n", restImp);
+			
 		sc.close();
 	}
 }
