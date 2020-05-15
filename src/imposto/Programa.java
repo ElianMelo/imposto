@@ -8,7 +8,7 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		double sal, serv, cap, med, edu, impSal, impServ, impCap;
+		double sal, serv, cap, med, edu, impSal, impServ, impCap, totImp, gastDedu, maxDedu;
 		impSal = impServ = impCap = 0.0;
 		
 		System.out.print("Renda anual com salário: ");
@@ -45,6 +45,15 @@ public class Programa {
 		System.out.printf("Imposto sobre salário: %.2f%n", impSal);
 		System.out.printf("Imposto sobre serviços: %.2f%n", impServ);
 		System.out.printf("Imposto sobre ganho de capital: %.2f%n", impCap);
+		
+		gastDedu = med + edu;
+		totImp = impSal + impServ + impCap;
+		maxDedu = totImp * 0.3;
+		
+		System.out.println("");
+		System.out.println("DEDUÇÕES:");
+		System.out.printf("Máximo dedutível: %.2f%n", maxDedu);
+		System.out.printf("Gastos dedutíveis: %.2f%n", gastDedu);
 		
 		sc.close();
 	}
